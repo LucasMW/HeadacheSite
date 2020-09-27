@@ -13,7 +13,40 @@
     <link rel="stylesheet" href="index.css">
     <title>The Headache Programming Language</title>
 
+    <meta name="image" property="og:image" content="https://headache.surge.sh/img/pt-br.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1024">
+        <meta property="og:image:height" content="1024">
+        <meta name="robots" content="index, follow">
+        <meta property="og:description" content="Headache Programming Language | Headache is a Compiler Toolchain capable of generating 8 bit Brainfuck. 
+        Available for Windows, Mac and Linux.">
+
     <script async defer data-domain="headache.surge.sh" src="https://plausible.io/js/plausible.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script> 
+    <script>
+        function download(item) {
+        switch(item) {
+            case "windows":
+                window.location.href = 'https://github.com/LucasMW/Headache/releases/download/v0.70/headache_windows.zip';
+                plausible('Clicked Windows Download!');
+            break;
+            case "linux":
+                window.location.href = 'https://github.com/LucasMW/Headache/releases/download/v0.70/headache_linux.zip'; 
+                plausible('Clicked Linux Download!');
+            break;
+            case "osx":
+                window.location.href = 'https://github.com/LucasMW/Headache/releases/download/v0.70/headache_osx.zip';
+                plausible('Clicked OSX Download!');
+            break;
+            case "source":
+                window.location.href = 'https://github.com/LucasMW/Headache/releases/tag/v0.70';
+                plausible('Clicked Check Source!');
+            break;
+            default:
+                plausible('Unknown Error');
+            }
+        }
+    </script>
 
 </head>
 
@@ -57,21 +90,21 @@
                 Mac and Linux </p>
 
             <button type="button" class="btn btn-success btn-lg"
-                onclick="window.location.href = 'https://github.com/LucasMW/Headache/releases/download/v0.70/headache_linux.zip'; ">
+                onclick="download('linux');">
                 Download Linux
             </button>
             <button type="button" class="btn btn-primary btn-lg"
-                onclick="window.location.href = 'https://github.com/LucasMW/Headache/releases/download/v0.70/headache_osx.zip'; ">
+                onclick="download('osx');">
                 Download Mac OS
             </button>
             <button type="button" class="btn btn-info btn-lg"
-                onclick="window.location.href = 'https://github.com/LucasMW/Headache/releases/download/v0.70/headache_windows.zip'; ">
+                onclick="download('windows')">
                 Download Windows
             </button>
 
             <br> <br> <br>
             <button type="button" class="btn btn-info btn-lg"
-                onclick="window.location.href = 'https://github.com/LucasMW/Headache/releases/tag/v0.70';">
+                onclick="download('source');">
                 Check Source
             </button>
 
@@ -88,13 +121,13 @@
                 <input type="hidden" name="cmd" value="_donate">
                 <input type="hidden" name="reset" value="1">
                 <input type="hidden" name="merchant" value="a0afbb440f587b6ba4a9718b823c0bf4">
-                <input type="hidden" name="item_name" value="Headache Donation">
+                <input type="hidden" name="item_name" value="Donation to support Headache Programming Language Development">
                 <input type="hidden" name="currency" value="USD">
                 <input type="hidden" name="amountf" value="10.00000000">
                 <input type="hidden" name="allow_amount" value="1">
                 <input type="hidden" name="want_shipping" value="0">
-                <input type="hidden" name="allow_extra" value="0">
-                <input type="image" src="https://www.coinpayments.net/images/pub/donate-med.png" alt="Doar com CoinPayments.net">
+                <input type="hidden" name="allow_extra" value="1">
+                <input type="image" src="https://www.coinpayments.net/images/pub/donate-med.png" alt="Donate with CoinPayments.net">
             </form>
             
         </div>
