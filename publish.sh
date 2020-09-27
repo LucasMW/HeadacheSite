@@ -1,4 +1,4 @@
 #!/bin/bash
 cd public/
-surge . headache.surge.sh
+time surge . headache.surge.sh
 cd ../
