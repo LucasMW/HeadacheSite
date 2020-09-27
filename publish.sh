@@ -1,2 +1,4 @@
 #!/bin/bash
-surge public headache.surge.sh
+cd public/
+surge . headache.surge.sh
+cd ../
