@@ -20,10 +20,13 @@
         <meta name="robots" content="index, follow">
         <meta property="og:description" content="Headache Programming Language | Headache is a Compiler Toolchain capable of generating 8 bit Brainfuck. | Available for Windows, Mac and Linux.">
 
+    <script defer data-domain="headache.surge.sh/index.html" src="https://plausible.io/js/plausible.js"></script>
+
     <script async defer data-domain="headache.surge.sh" src="https://plausible.io/js/plausible.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script> 
     <script>
         function download(item) {
+            console.log(item)
         switch(item) {
             case "windows":
                 window.location.href = 'https://github.com/LucasMW/Headache/releases/download/v0.70/headache_windows.zip';
@@ -41,6 +44,9 @@
                 window.location.href = 'https://github.com/LucasMW/Headache/releases/tag/v0.70';
                 plausible('Clicked Check Source!');
             break;
+            case "telegram":
+                window.location.href = 'https://t.me/HeadacheDevelopment';
+                plausible('Join Telegram Channel!');
             default:
                 plausible('Unknown Error');
             }
@@ -85,7 +91,8 @@
         <div class="starter-template">
             <h1>Headache Programming Language</h1>
 
-            <p class="lead">Headache is a Compiler Toolchain capable of generating 8 bit Brainfuck. Available for Windows,
+            <p class="lead">Headache is a Compiler Toolchain capable of generating 8 bit Brainfuck. </p> 
+            <p class="lead"> Available for Windows,
                 Mac and Linux </p>
 
             <button type="button" class="btn btn-success btn-lg"
@@ -129,7 +136,10 @@
                 <input type="image" src="https://www.coinpayments.net/images/pub/donate-med.png" alt="Donate with CoinPayments.net">
             </form>
             <!-- <iframe id="webbuttonwidget" class="center" file="webbuttonwidget" src="https://telegrambutton.com/webbuttonwidget.php?chat_id=HeadacheDevelopment&showchatid=true&showmembercount=true&showmembercount=true&color=&pulse=false&textcolor=white&shadowval=&textval=join channel" style="border:20px;height: 125px;" width="240px"></iframe> -->
-            
+            <button type="button" class="btn btn-primary btn-lg"
+                onclick="download('telegram');">
+                Join Channel
+            </button>
         </div>
     </div>
 
