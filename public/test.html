@@ -11,14 +11,14 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     
     <link rel="stylesheet" href="index.css">
-    <title>The Headache Programming Language</title>
-
+    <title> Headache Compiler | The Headache Programming Language | Try it! </title>
+ 
     <meta name="image" property="og:image" content="https://headache.surge.sh/img/factorial.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="1024">
         <meta property="og:image:height" content="1024">
         <meta name="robots" content="index, follow">
-        <meta property="og:description" content="Headache Programming Language | Headache is a Compiler Toolchain capable of generating 8 bit Brainfuck. | Available for Windows, Mac and Linux.">
+        <meta property="og:description" content="Headache Programming Language | Try it! |   v|  Headache is a Compiler Toolchain capable of generating 8 bit Brainfuck. | Available for Windows, Mac and Linux.">
 
     <script defer data-domain="headache.surge.sh/index.html" src="https://plausible.io/js/plausible.js"></script>
 
@@ -120,44 +120,28 @@ fetch("https://menezesworks.com:8081/compile", requestOptions)
             <h1>Headache Programming Language</h1>
 
             <p class="lead">Headache is a Compiler Toolchain capable of generating 8 bit Brainfuck. </p> 
-            <p> Available for Windows,
+            <p class="lead"> Available for Windows,
                 Mac and Linux </p>
             <p id="compilerVersion"></p>
-            <textarea id="textarea" style="width: 730px;height: 295px;" width=800px> Insert Headache Program Here</textarea>
+            <textarea id="textarea" style="width: 730px;height: 295px;" width=800px>void main () { 
+    print "Headache Programming Language\n"; 
+} 
+            </textarea>
             <br>
             <button type="button" class="btn btn-info btn-lg"
                 onclick="compile()">
                 Compile
             </button>
+            <br>
 
             <div id="result"> </div>
 
             
 
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="UYKQZWUS6B5LC">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" name="submit"
-                    alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
-            </form>
-            <form action="https://www.coinpayments.net/index.php" method="post">
-                <input type="hidden" name="cmd" value="_donate">
-                <input type="hidden" name="reset" value="1">
-                <input type="hidden" name="merchant" value="a0afbb440f587b6ba4a9718b823c0bf4">
-                <input type="hidden" name="item_name" value="Donation to support Headache Programming Language Development">
-                <input type="hidden" name="currency" value="USD">
-                <input type="hidden" name="amountf" value="10.00000000">
-                <input type="hidden" name="allow_amount" value="1">
-                <input type="hidden" name="want_shipping" value="0">
-                <input type="hidden" name="allow_extra" value="1">
-                <input type="image" src="https://www.coinpayments.net/images/pub/donate-med.png" alt="Donate with CoinPayments.net">
-            </form>
+            
+            <br><br><br>
             <!-- <iframe id="webbuttonwidget" class="center" file="webbuttonwidget" src="https://telegrambutton.com/webbuttonwidget.php?chat_id=HeadacheDevelopment&showchatid=true&showmembercount=true&showmembercount=true&color=&pulse=false&textcolor=white&shadowval=&textval=join channel" style="border:20px;height: 125px;" width="240px"></iframe> -->
-            <button type="button" class="btn btn-primary btn-lg"
-                onclick="download('telegram');">
-                Join Channel
-            </button>
+            
         </div>
     </div>
 
