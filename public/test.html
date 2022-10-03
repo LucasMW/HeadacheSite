@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="index.css">
+    <title>The Headache Programming Language</title>
+
+    <meta name="image" property="og:image" content="https://headache.surge.sh/img/factorial.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1024">
+        <meta property="og:image:height" content="1024">
+        <meta name="robots" content="index, follow">
+        <meta property="og:description" content="Headache Programming Language | Headache is a Compiler Toolchain capable of generating 8 bit Brainfuck. | Available for Windows, Mac and Linux.">
+
+    <script defer data-domain="headache.surge.sh/index.html" src="https://plausible.io/js/plausible.js"></script>
+
+    <script async defer data-domain="headache.surge.sh" src="https://plausible.io/js/plausible.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script> 
+
+    <script>
+        
+        window.onload = function () {
+            getVersion();
+        }
+        function getVersion() {
+            var myHeaders = new Headers();      
+            myHeaders.append("Content-Type", "application/json");
+
+            var raw = JSON.stringify({
+        "method": "get",
+        "url": "http://menezesworks.com:4000/hac/version",
+            });
+
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            fetch("https://menezesworks.com:8081/json", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                 console.log(result)
+                 document.getElementById("compilerVersion").innerText = result;
+            } )
+            .catch(error => console.log('error', error));
+        }
+        function compile() {
+           let text =  document.getElementById('textarea').value;
+           console.log(text);
+
+           var myHeaders = new Headers();
+myHeaders.append("Content-Type", "text/plain");
+
+var raw = text//"//12/09/2020\n//Author: Lucas Menezes\n//Interactive Calculator program\nvoid main() {\n    char operator;\n    byte a,b;\n    print \"Enter first number:\\n\";\n    read a;\n    print \"Received number \"; print a; print \"\\n\";\n    print \"Enter second number:\\n\";\n    read b;\n    print \"Received number \"; print b; print \"\\n\";\n    print \"Enter operator (+,-,*,/):\\n\";\n    read operator;\n    if(operator == '+') {\n        print \"add\\n\";\n        print a+b; print \"\\n\";\n    } else if(operator == '-') {\n        print \"subtract\\n\";\n        print a-b; print \"\\n\";\n    } else if(operator == '*'){\n        print \"multiply\\n\";\n        print a*b; print \"\\n\";\n    } else if(operator == '/'){\n        print \"div\\n\";\n        if(b == 0) {\n            if (a == 0) {\n                print \"0/0 is undefined\\n\";\n            } else {\n                print \"division by zero isn't allowed\\n\";\n            }\n        } else {\n            print a/b; print \"\\n\";\n        }\n    } else {\n        print \"unknown operation\\n\";\n    }\n}";
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("https://menezesworks.com:8081/compile", requestOptions)
+  .then(response => {  
+    return response.text()
+   } )
+  .then(result => { 
+    console.log(result);
+    document.getElementById('result').innerHTML = result;
+   })
+  .catch(error => console.log('error', error));
+        }
+    </script>
+    
+</head>
+
+<body>
+   
+    <nav class="navbar navbar-expand-lg justify-content-between navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Headache</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/LucasMW/Headache/wiki">Documentation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/LucasMW/HeadacheLatex">Thesis</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/LucasMW/Headache/tree/master/examples">Examples</a>
+             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="downloads/headache-VSCODE-syntax.zip">VSCode Extension</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+    <div class="container">
+        <div class="starter-template">
+            <h1>Headache Programming Language</h1>
+
+            <p class="lead">Headache is a Compiler Toolchain capable of generating 8 bit Brainfuck. </p> 
+            <p> Available for Windows,
+                Mac and Linux </p>
+            <p id="compilerVersion"></p>
+            <textarea id="textarea" style="width: 730px;height: 295px;" width=800px> Insert Headache Program Here</textarea>
+            <br>
+            <button type="button" class="btn btn-info btn-lg"
+                onclick="compile()">
+                Compile
+            </button>
+
+            <div id="result"> </div>
+
+            
+
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="UYKQZWUS6B5LC">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" name="submit"
+                    alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            <form action="https://www.coinpayments.net/index.php" method="post">
+                <input type="hidden" name="cmd" value="_donate">
+                <input type="hidden" name="reset" value="1">
+                <input type="hidden" name="merchant" value="a0afbb440f587b6ba4a9718b823c0bf4">
+                <input type="hidden" name="item_name" value="Donation to support Headache Programming Language Development">
+                <input type="hidden" name="currency" value="USD">
+                <input type="hidden" name="amountf" value="10.00000000">
+                <input type="hidden" name="allow_amount" value="1">
+                <input type="hidden" name="want_shipping" value="0">
+                <input type="hidden" name="allow_extra" value="1">
+                <input type="image" src="https://www.coinpayments.net/images/pub/donate-med.png" alt="Donate with CoinPayments.net">
+            </form>
+            <!-- <iframe id="webbuttonwidget" class="center" file="webbuttonwidget" src="https://telegrambutton.com/webbuttonwidget.php?chat_id=HeadacheDevelopment&showchatid=true&showmembercount=true&showmembercount=true&color=&pulse=false&textcolor=white&shadowval=&textval=join channel" style="border:20px;height: 125px;" width="240px"></iframe> -->
+            <button type="button" class="btn btn-primary btn-lg"
+                onclick="download('telegram');">
+                Join Channel
+            </button>
+        </div>
+    </div>
+
+    </div><!-- /.container -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
