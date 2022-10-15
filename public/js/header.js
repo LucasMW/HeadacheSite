@@ -7,7 +7,9 @@ function getNavBar() {
     console.log(path);
     let lis = ""
     navbarItemsNames.forEach(element => {
-        lis += `<li class="nav-item ${path.includes(element.path) ? "active" : ""}">
+        lis += `<li class="nav-item ${(path.includes(element.path) || 
+        (element.path.includes("index.html") && (path == '' || path =="#")
+        )) ? "active" : ""}">
         <a class="nav-link" href="${element.path}">${element.name} </a>
       </li>\n`;
     });
@@ -34,7 +36,8 @@ function navbarHandler(){
   let path = document.location.pathname.substring(1);
   let x = navbarItemsNames.find(element => { return path.includes(element.path)});
   console.log("Found navbar? " + x);
-  if(x != undefined) {
+  console.log("path " + path)
+  if(x != undefined || path.includes("#") || path == "") {
     loadNavbar();
   }
 }
